@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_view_kanban_catalog_corregir_modelo" model="ir.ui.view">
+        <field name="name">product.view.kanban.catalog.corregir.modelo</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_view_kanban_catalog"/>
+        <field name="arch" type="xml">
+            <field name="id" position="after">
+                <field name="can_fix_model"/>
+            </field>
+            <a role="menuitem" type="open" position="after">
+                <a role="menuitem" type="object" name="action_corregir_modelo"
+                   class="dropdown-item border-top-0"
+                   t-if="record.can_fix_model.raw_value">
+                    Corregir modelo
+                </a>
+            </a>
+        </field>
+    </record>
+</odoo>

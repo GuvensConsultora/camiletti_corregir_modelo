@@ -1,15 +1,17 @@
 {
     "name": "Corregir Modelo desde Presupuesto",
-    "version": "19.0.1.0.0",
-    "summary": "Botón para corregir el valor de Modelo de una cubierta "
-               "desde la línea del presupuesto de ventas, sin romper variantes.",
+    "version": "19.0.2.0.0",
+    "summary": "Ítem 'Corregir modelo' en la tarjeta del catálogo del "
+               "presupuesto para corregir el valor de Modelo de una cubierta, "
+               "sin romper variantes.",
     "description": """
-Corregir Modelo desde el Presupuesto de Ventas
-==============================================
+Corregir Modelo desde el Catálogo del Presupuesto
+=================================================
 
-Agrega un botón "Corregir modelo" en la línea del presupuesto (sale.order.line)
-para completar/corregir el valor del atributo *Modelo* de una cubierta que quedó
-con un placeholder ('SIN', 'S/M', 'All') desde la migración.
+Agrega un ítem "Corregir modelo" en el menú de la tarjeta del catálogo del
+presupuesto (vista kanban de product.product) para completar/corregir el valor
+del atributo *Modelo* de una cubierta que quedó con un placeholder
+('SIN', 'S/M', 'All') desde la migración.
 
 El wizard decide solo el camino que no rompe nada:
 - Si el valor de Modelo lo usa SOLO ese producto -> renombra el
@@ -27,7 +29,7 @@ Solo opera sobre el atributo Modelo; no toca Marca ni Medida.
     "depends": ["sale_management"],
     "data": [
         "wizards/corregir_modelo_views.xml",
-        "views/sale_order_views.xml",
+        "views/product_catalog_views.xml",
     ],
     "installable": True,
     "application": False,

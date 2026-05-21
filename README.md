@@ -2,16 +2,16 @@
 
 Módulo Odoo 19 (Yagüven C.G.) para **Camilleti Neumáticos**.
 
-Agrega un botón **"Corregir modelo"** en la línea del presupuesto de ventas
-(`sale.order.line`) que permite completar/corregir el valor del atributo
-**Modelo** de una cubierta que quedó con un placeholder (`SIN`, `S/M`, `All`)
-desde la migración, sin tener que ir a la ficha del producto.
+Agrega un ítem **"Corregir modelo"** en el menú de la tarjeta del **catálogo del
+presupuesto** (vista kanban de `product.product`) que permite completar/corregir
+el valor del atributo **Modelo** de una cubierta que quedó con un placeholder
+(`SIN`, `S/M`, `All`) desde la migración, sin salir del flujo de venta.
 
 ## Cómo funciona
 
-El botón aparece solo cuando la cubierta de la línea tiene el Modelo en
-placeholder. El operador escribe el modelo correcto y el wizard elige solo el
-camino que no rompe nada:
+El ítem aparece solo cuando la cubierta tiene el Modelo en placeholder. El
+operador escribe el modelo correcto y el wizard elige solo el camino que no
+rompe nada:
 
 - Si el valor de Modelo lo usa **solo ese producto** → **renombra** el
   `product.attribute.value` (no regenera variantes).
