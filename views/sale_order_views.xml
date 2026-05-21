@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_corregir_modelo" model="ir.ui.view">
+        <field name="name">sale.order.form.corregir.modelo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list" position="inside">
+                <field name="can_fix_model" column_invisible="1"/>
+                <button name="action_corregir_modelo" type="object"
+                        string="Corregir modelo" icon="fa-wrench"
+                        title="Corregir el modelo de esta cubierta"
+                        invisible="not can_fix_model"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

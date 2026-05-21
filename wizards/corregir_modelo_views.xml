@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_corregir_modelo_form" model="ir.ui.view">
+        <field name="name">camiletti.corregir.modelo.form</field>
+        <field name="model">camiletti.corregir.modelo</field>
+        <field name="arch" type="xml">
+            <form string="Corregir modelo">
+                <group>
+                    <field name="line_id" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="modelo_actual"/>
+                    <field name="modelo_nuevo" placeholder="Ej.: PRIMACY 4"/>
+                </group>
+                <p class="text-muted">
+                    El modelo se guarda en el producto: las próximas ventas de
+                    esta cubierta ya saldrán con el modelo correcto.
+                </p>
+                <footer>
+                    <button string="Corregir" name="action_confirmar"
+                            type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
