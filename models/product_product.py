@@ -11,10 +11,13 @@ PLACEHOLDERS = {"SIN", "S/M", "ALL", "SIN MODELO", "S/MODELO", "N/A", "-", ""}
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    # Computado NO almacenado: controla la visibilidad del ítem en el catálogo.
+    # Almacenado: la tarjeta del catálogo del presupuesto no trae campos
+    # computados no almacenados, así que lo guardamos para que el t-if del
+    # ítem "Corregir modelo" pueda evaluarlo.
     can_fix_model = fields.Boolean(
         string="Modelo corregible",
         compute="_compute_can_fix_model",
+        store=True,
     )
 
     def _get_modelo_ptav(self):
@@ -25,7 +28,8 @@ class ProductProduct(models.Model):
             lambda v: v.attribute_id.name == MODELO_ATTR
         )[:1]
 
-    @api.depends("product_template_variant_value_ids")
+    @api.depends("product_template_variant_value_ids",
+                 "product_template_variant_value_ids.name")
     def _compute_can_fix_model(self):
         for product in self:
             ptav = product._get_modelo_ptav()
