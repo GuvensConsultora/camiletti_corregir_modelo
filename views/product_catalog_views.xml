@@ -8,6 +8,18 @@
             <field name="id" position="after">
                 <field name="can_fix_model"/>
             </field>
+
+            <!-- Botón rojo prominente en el cuerpo de la tarjeta -->
+            <xpath expr="//t[@t-name='card']//field[@name='name']" position="after">
+                <button type="object" name="action_corregir_modelo"
+                        t-if="record.can_fix_model.raw_value"
+                        class="btn btn-sm btn-danger mt-1 align-self-start o_product_catalog_cancel_global_click"
+                        title="El modelo de esta cubierta está sin cargar">
+                    <i class="fa fa-exclamation-circle me-1"/>Corregir modelo
+                </button>
+            </xpath>
+
+            <!-- Respaldo: ítem en el menú de la tarjeta -->
             <a role="menuitem" type="open" position="after">
                 <a role="menuitem" type="object" name="action_corregir_modelo"
                    class="dropdown-item border-top-0"
