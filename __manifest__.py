@@ -1,6 +1,6 @@
 {
     "name": "Corregir Modelo desde Presupuesto",
-    "version": "19.0.2.3.0",
+    "version": "19.0.2.4.0",
     "summary": "Ítem 'Corregir modelo' en la tarjeta del catálogo del "
                "presupuesto para corregir el valor de Modelo de una cubierta, "
                "sin romper variantes.",
@@ -31,6 +31,7 @@ Solo opera sobre el atributo Modelo; no toca Marca ni Medida.
         "security/ir.model.access.csv",
         "wizards/corregir_modelo_views.xml",
         "views/product_catalog_views.xml",
+        "views/sale_order_views.xml",
     ],
     "installable": True,
     "application": False,

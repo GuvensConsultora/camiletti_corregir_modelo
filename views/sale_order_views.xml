@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Fecha de la orden editable en borrador SOLO para gerencia (backdating).
+         El nativo oculta date_order en draft/sent y solo la muestra readonly al
+         confirmar, así el gerente no tenía dónde cargar la fecha para fechar el
+         presupuesto en una fecha anterior. La exponemos siempre; editable solo
+         si es gerente de ventas (is_sale_manager) y el presupuesto sigue en
+         borrador/enviado. Al vendedor le queda readonly. El candado de fecha
+         pasada vive además en action_confirm(). -->
+    <record id="view_order_form_backdating" model="ir.ui.view">
+        <field name="name">sale.order.form.backdating</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="date_order" position="before">
+                <field name="is_sale_manager" invisible="1"/>
+            </field>
+            <field name="date_order" position="attributes">
+                <attribute name="invisible">0</attribute>
+                <attribute name="readonly">not is_sale_manager or state not in ('draft', 'sent')</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
