@@ -1,6 +1,6 @@
 {
     "name": "Corregir Modelo desde Presupuesto",
-    "version": "19.0.2.4.0",
+    "version": "19.0.2.4.1",
     "summary": "Ítem 'Corregir modelo' en la tarjeta del catálogo del "
                "presupuesto para corregir el valor de Modelo de una cubierta, "
                "sin romper variantes.",

@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
 
     @api.depends_context("uid")
     def _compute_is_sale_manager(self):
-        is_manager = self.env.user.has_group("sale.group_sale_manager")
+        is_manager = self.env.user.has_group("sales_team.group_sale_manager")
         for order in self:
             order.is_sale_manager = is_manager
 
@@ -26,7 +26,7 @@ class SaleOrder(models.Model):
         restauramos la fecha original que el gerente cargó en el borrador.
         """
         today = fields.Date.today()
-        is_manager = self.env.user.has_group("sale.group_sale_manager")
+        is_manager = self.env.user.has_group("sales_team.group_sale_manager")
         for order in self:
             if order.date_order and order.date_order.date() < today:
                 if not is_manager:
